@@ -1,0 +1,49 @@
+<div class="sign-up-box">
+    <p style="font-size: 25px ; margin: 30px 0px 0px 30px ;"> Create Account </p>
+    <form #signupForm="ngForm" (submit)="onSubmit(signupForm)">
+        <div class="sign-up-layout">
+        <mat-form-field style="margin: 0px 25px 0px 25px">   
+            <mat-label>Username</mat-label>
+            <input matInput name="username" #username="ngModel" ngModel required>
+            <mat-error *ngIf="username.invalid"> Please enter username. </mat-error>
+        </mat-form-field>
+        <mat-form-field style="margin: 0px 25px 0px 25px">   
+            <mat-label>Password</mat-label>
+            <input matInput name="password" type="password" #password="ngModel" ngModel required minlength="6"> 
+            <mat-error *ngIf="password.invalid"> Please enter password at least 6 characters. </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="sign-up-layout"> 
+        <mat-form-field style="width:80% ; margin: 0px 25px 0px 25px">   
+            <mat-label>Email</mat-label>
+            <input matInput name="email" type="email" #email="ngModel" ngModel placeholder="example@email.com" required email>
+            <mat-error *ngIf="email.invalid"> Please enter email. </mat-error>
+        </mat-form-field>    
+        </div>
+        <div class="sign-up-layout">
+            <mat-form-field style="margin: 0px 25px 0px 25px">   
+            <mat-label>Fristname</mat-label>
+                <input matInput name="fristname" ngModel>
+            </mat-form-field>
+            <mat-form-field style="margin: 0px 25px 0px 25px">   
+                <mat-label>Lastname</mat-label>
+                <input matInput name="lastname" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="sign-up-layout">
+            <mat-form-field style="margin: 0px 25px 0px 25px">   
+                <mat-label>Age</mat-label>
+                <input matInput name="age" ngModel>
+            </mat-form-field>
+            <mat-form-field style="margin: 0px 25px 0px 25px">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" ngModel>
+                <mat-option> --- </mat-option>
+                <mat-option value="male"> Male </mat-option>
+                <mat-option value="female"> Female </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button class="sign-up-btn" type="submit"> Sign up </button>
+    </form>
+</div>

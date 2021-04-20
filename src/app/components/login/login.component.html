@@ -1,0 +1,20 @@
+<div class="login-box">
+    <form #loginForm="ngForm" (submit)="onLogin(loginForm)">
+    <div class="login-layout">
+        <mat-form-field appearance="outline" style="width: 80% ; margin: 50px auto 0px auto ;">   
+            <mat-label>Username</mat-label>
+            <input matInput name="username" #username="ngModel" ngModel>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 80% ; margin: 0px auto ;">   
+            <mat-label>Password</mat-label>
+            <input matInput name="password" type="password" #password="ngModel" ngModel> 
+        </mat-form-field>
+        <p class="alert-message"> {{alert_message}} </p>
+        <button class="login-btn" type="submit"> Login </button>
+        <button class="create-acc-btn"routerLink="/sign-up"> Create Account </button>
+    </div>
+    </form>
+</div> 
+
+<p> User {{test_user}} </p>
+<p> Password {{test_password}} </p>

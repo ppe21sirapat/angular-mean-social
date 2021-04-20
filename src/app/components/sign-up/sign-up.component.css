@@ -1,0 +1,34 @@
+.sign-up-box {
+    position: relative ;
+    width: 600px ;
+    height: 500px ;
+    border: solid lightgrey 1.5px ;
+    border-radius: 8px ;
+    margin: 150px auto ;
+}
+
+.sign-up-layout {
+    width: 90% ;
+    margin: 25px auto ;
+}
+
+.sign-up-btn {
+    position: absolute ;
+    bottom: 15px ;
+    right: 30px ;
+    width: 85px ;
+    height: 30px ;
+    border: none ;
+    border-radius: 4px ;
+    font-size: 15px ;
+    color: #ffffff ;
+    background-color: #306ed1 ;
+}
+
+.sign-up-btn:focus {
+    outline: none ;
+}
+
+.sign-up-btn:hover {
+    background-color: #3881f5 ;
+}

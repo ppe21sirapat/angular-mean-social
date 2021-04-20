@@ -1,0 +1,45 @@
+.login-box {
+    width: 400px ;
+    height: 400px ;
+    border: solid lightgray 1.5px ;
+    border-radius: 8px ;
+    margin: 10% auto ;
+}
+
+.login-layout {
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+}
+
+.login-btn {
+    width: 80% ;
+    height: 40px ;
+    color: #ffffff ;
+    font-size: 18px ;
+    font-weight: bold ;
+    background-color: #306ed1 ;
+    border: none ;
+    border-radius: 4px ;
+    margin: 0px auto ;
+}
+
+.create-acc-btn {
+    width: fit-content ;
+    height: fit-content ;
+    background-color: #ffffff ;
+    border: none ;
+    font-size: 18px ;
+    color: #306ed1 ;
+    margin: 50px auto 0px auto ;
+}
+
+.create-acc-btn:focus {
+    outline: none ;
+}
+
+.alert-message {
+    font-size: 15px ;
+    color: #dc143c ;
+    margin: 5px auto ;
+}
