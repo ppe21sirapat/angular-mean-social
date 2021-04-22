@@ -1,0 +1,81 @@
+.main-user-box {
+    width: 100% ;
+    height: auto ;
+    display: grid ;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.user-profile-layout {
+    grid-column: span 4 ;
+}
+
+.user-content-layout {
+    width: 100% ;
+    height: 700px ;
+    grid-column: span 8 ;
+    overflow: auto ;
+}
+
+.user-header {
+    grid-column: span 12 ;
+    position: relative ;
+    width: 100% ;
+    height: 70px ;
+    background-color: #004f8f ;
+}
+
+.user-profile-box {
+    width: 90% ;
+    height: 550px ;
+    border: solid lightgray 1.5px ;
+    border-radius: 4px ;
+    margin: 50px auto ;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.user-img {
+    width: 175px ;
+    height: 175px ;
+    background-color: gray ;
+    border-radius: 50% ;
+    margin: 25px auto ;
+}
+
+.user-text-name {
+    font-size: 25px ;
+    color: gray ;
+    text-align: center ;
+}
+
+.user-content-box {
+    width: 80% ;
+    height: 550px ;
+    border-radius: 4px ;
+    margin: 50px auto ;
+    overflow: hidden ;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.content-img {
+    width: 90% ;
+    height: 350px ;
+    background-color: gray ;
+    margin: 25px auto ;
+}
+
+.logout-btn {
+    position: absolute ;
+    top: 20px ;
+    right: 30px ;
+    width: 75px ;
+    height: 30px ;
+    font-size: 15px ;
+    color: #ffffff ;
+    background-color: #306ed1 ;
+    border: none ; 
+    border-radius: 4px ;
+}
+
+.logout-btn:focus {
+    outline: none ;
+}

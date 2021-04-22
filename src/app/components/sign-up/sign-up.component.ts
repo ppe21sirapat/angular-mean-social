@@ -21,7 +21,7 @@ export class SignUpComponent implements OnInit {
     }
     this.userService.createAccount(signupForm.value).subscribe(res => {
         console.log('Create Account')
-        console.log(signupForm.value) ;
+        console.log(res) ;
         signupForm.resetForm() ;
     })
   }

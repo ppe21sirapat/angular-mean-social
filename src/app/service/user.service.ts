@@ -18,6 +18,6 @@ export class UserService {
   }
 
   loginCheck(data: any){
-    return this.http.post('http://localhost:8000/api/check-user',data)
+    return this.http.post('http://localhost:8000/api/login',data)
   }
 }

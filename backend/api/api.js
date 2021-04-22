@@ -1,5 +1,7 @@
 const express = require('express') ;
 const router = express.Router() ;
+const bcrypt = require('bcrypt') ;
+const jwt = require('jsonwebtoken') ;
 
 let member = require('../model/member_model.js') ;
 
@@ -25,31 +27,74 @@ router.get('/member-list', (req, res) => {
 // Add New Member
 
 router.post('/create-account', (req, res) => {
-    member.create(req.body, (error,data) => {
-        if(error)
-        {
-            return(error) ;
-        }
-        else
-        {
-            res.json(req.body) ;
-        }
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(req.body.password, salt, (err, hash_password) => {
+            req.body.password = hash_password ;
+            member.create(req.body, (error,data) => {
+                if(error)
+                {
+                    return(error) ;
+                }
+                else
+                {
+                    console.log(req.body) ;
+                    res.json(req.body) ;
+                }
+            })
+        })
     })
+    // member.create(req.body, (error,data) => {
+    //     if(error)
+    //     {
+    //         return(error) ;
+    //     }
+    //     else
+    //     {
+    //         res.json(req.body) ;
+    //     }
+    // })
 })
 
 // Login Check User & Password
-router.post('/check-user', (req, res) => {
-    const query = {username:req.body.username, password: req.body.password} ;
-    member.findOne(query).then(user => {
+router.post('/login', (req, res) => {
+    let userData ;
+    member.findOne({username:req.body.username}).then(user => {
+        userData = user ;
         if(!user)
         {
             res.json({message:'fail'})
         }
         else
         {
-            res.json({message:'success',user})
+            return bcrypt.compare(req.body.password, userData.password)
         }
-    })
+    }).then(result => {
+        if(!result)
+        {
+            res.json({message:'fail'})
+        }
+        else
+        {
+            const token = jwt.sign({username: userData.username,userId: userData._id},'secure_token', {expiresIn: '1h'})
+            res.json({message: 'success', userData, token: token})
+        }
+    }).catch(err => 
+        {
+            res.json({message: 'Auth Fail'})
+        })
+
+
+    // const query = {username:req.body.username, password: req.body.password} ;
+    // member.findOne(query).then(user => {
+    //     if(!user)
+    //     {
+    //         res.json({message:'fail'})
+    //     }
+    //     else
+    //     {
+    //         res.json({message:'success',user})
+    //     }
+    // })
 })
 
 module.exports = router ;

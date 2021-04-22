@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         
         Toast.fire({
           icon: 'success',
-          title: 'Welcome ' + res.user.username
+          title: 'Welcome ' + res.userData.username
         })
       }
       else if(res.message == 'fail')
