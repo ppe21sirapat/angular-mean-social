@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       console.log(res)
       if(res.message == 'success')
       {
-        this.router.navigate(['main'])
         const Toast = Swal.mixin({
           toast: true,
           position: 'top-end',
@@ -48,6 +47,9 @@ export class LoginComponent implements OnInit {
           icon: 'success',
           title: 'Welcome ' + res.userData.username
         })
+
+        this.router.navigate(['main'])
+        this.userService.storeUserdata(res.token,res.userData._id)
       }
       else if(res.message == 'fail')
       {

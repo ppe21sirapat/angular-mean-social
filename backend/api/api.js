@@ -24,6 +24,21 @@ router.get('/member-list', (req, res) => {
     })
 })
 
+// Get Profile 
+router.get('/profile', (req, res) => {
+    member.findOne({_id:req.body.id}, (error, data) => {
+        if(error)
+        {
+            return(error) ;
+        }
+        else
+        {
+            console.log(req.body)
+            res.json({message:"profile", body: req.body, userData:data}) ;
+        }
+    })
+})
+
 // Add New Member
 
 router.post('/create-account', (req, res) => {
